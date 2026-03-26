@@ -1,82 +1,93 @@
-# Intelligence Integration Documentation
+# Intelligence Layer Live Integration
 
 ## Overview
 
-This module implements the Autonomous Intelligence Layer.
+This module integrates the Intelligence Layer into the live pipeline.
 
-The purpose of this layer is to generate the next task automatically
-based on the review output from the scoring engine.
+The system now runs inside a real execution flow:
 
-This replaces the manual task assignment process.
+submission → review_engine → intelligence_layer → validator → response
 
-
-## Runtime Flow
-
-Submission
-→ Review Output
-→ Intelligence Engine
-→ Next Task Generation
-→ Product Response
+No simulation is used.
 
 
-## Main Component
+## Pipeline Flow
 
-TaskIntelligenceEngine
-
-Method:
-generate_next_task(review_output)
-
-Input:
-review_output from scoring engine
-
-Output:
-next_task object
+1. Submission received
+2. ReviewEngine evaluates submission
+3. ReviewOutput generated
+4. IntelligenceAdapter calls TaskIntelligenceEngine
+5. Next task generated
+6. ContractValidator checks schema
+7. Response returned
 
 
-## Decision Rules
+## Integration Points
 
-score < 40 → correction task
+review_engine/review_engine.py  
+orchestrator/review_orchestrator.py  
+adapter/intelligence_adapter.py  
+engine/task_intelligence_engine.py  
+validator/contract_validator.py
 
-40 ≤ score < 70 → reinforcement task
 
-score ≥ 70 → advance task
+## Data Flow
 
-
-## Architecture Guard
-
-Ensures next task follows:
-
-- same track
-- correct progression
-- no random assignment
+submission (dict)
+→ ReviewEngine
+→ ReviewOutput object
+→ IntelligenceAdapter
+→ TaskIntelligenceEngine
+→ next_task dict
+→ ContractValidator
+→ response
 
 
 ## Output Contract
 
-next_task:
+next_task must contain:
 
-- title
-- objective
-- focus_area
-- difficulty
-- expected_deliverables
+title  
+objective  
+focus_area  
+difficulty  
+expected_deliverables
+
+
+## Failure Handling
+
+If intelligence fails:
+
+fallback task is generated
+
+Fallback task:
+
+- title: Fallback Task
+- objective: Retry submission
+- focus_area: general
+- difficulty: easy
+- expected_deliverables: Resubmit work
 
 
 ## Determinism
 
-Same review output always produces the same next task.
+Same input always produces same output.
+
+PASS / BORDERLINE / FAIL tested.
 
 
-## Files
+## Test Cases
 
-engine/
-adapter/
-models/
-registry/
-runtime_simulation.py
+PASS → Next level task  
+BORDERLINE → Reinforcement task  
+FAIL → Correction task
 
 
 ## Status
 
-Intelligence layer integrated successfully.
-Ready for orchestrator connection.
+✔ Live pipeline working  
+✔ No simulation  
+✔ Contract validated  
+✔ Failure safe  
+✔ Deterministic  
+✔ Ready for testing

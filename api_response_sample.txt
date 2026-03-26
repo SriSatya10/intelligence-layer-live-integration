@@ -1,0 +1,14 @@
+{
+  "review_output": {
+    "score": 85,
+    "missing": [],
+    "track": "backend"
+  },
+  "next_task": {
+    "title": "Next level task",
+    "objective": "Move to next skill level",
+    "focus_area": "backend",
+    "difficulty": "hard",
+    "expected_deliverables": "New feature"
+  }
+}
