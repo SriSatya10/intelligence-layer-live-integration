@@ -92,7 +92,7 @@ STUDENT/USER SUBMITS WORK
 
 ## 3.1 — deterministic-task-review-engine
 
-**GitHub:** `SriSatya10/deterministic-task-review-engine`
+**GitHub:** https://github.com/SriSatya10/deterministic-task-review-engine
 **Local:** `D:\deterministic-task-review-engine`
 **What it does:** Takes a text submission, analyzes it with rule-based signals, calculates a score (0-100), and returns PASS / BORDERLINE / FAIL.
 
@@ -118,7 +118,7 @@ python -m pytest tests/ -v
 
 ## 3.2 — assignment-aware-deterministic-engine
 
-**GitHub:** `SriSatya10/assignment-aware-deterministic-engine`
+**GitHub:** https://github.com/SriSatya10/assignment-aware-deterministic-engine
 **Local:** `D:\deterministic-task-review-engine-2`
 **What it does:** A more advanced review engine that compares a submission **against an assignment rubric**. It checks: did the student cover what was asked?
 
@@ -144,7 +144,7 @@ python -m pytest tests/ -v
 
 ## 3.3 — task-review-intelligence
 
-**GitHub:** `SriSatya10/task-review-intelligence`
+**GitHub:** https://github.com/SriSatya10/task-review-intelligence
 **Local:** `D:\task-review-intelligence`
 **What it does:** A hybrid evaluation system combining rule-based validation + heuristic analysis + a hybrid decision layer. Returns a rich JSON with scores, readiness status, failure reasons, and improvement hints.
 
@@ -168,7 +168,7 @@ python -m pytest tests/ -v
 
 ## 3.4 — task-review-decision-engine
 
-**GitHub:** `SriSatya10/task-review-decision-engine`
+**GitHub:** https://github.com/SriSatya10/task-review-decision-engine
 **Local:** `D:\task-review-decision-engine`
 **What it does:** An orchestrator that connects the review process to a final convergence pipeline. `product_orchestrator.py` receives a repo URL + raw report, passes it through `final_convergence.py` which extracts intelligence (missing features, failure reasons, delivery ratio) and calls a `process_submission` service.
 
@@ -189,7 +189,7 @@ python -m pytest tests/ -v
 
 ## 3.5 — mandala-task-selector
 
-**GitHub:** `SriSatya10/mandala-task-selector`
+**GitHub:** https://github.com/SriSatya10/mandala-task-selector
 **Local:** `D:\mandala-task-selector`
 **What it does:** Pure deterministic task selector. Takes a Mandala JSON input (product, layer, subsystem, capability, evidence) and returns the correct task_id using 13 IF/ELSE rules and graph traversal.
 
@@ -221,7 +221,7 @@ python -m pytest tests/test_selector.py -v    # 19 tests
 
 ## 3.6 — parikshak-integration-pipeline
 
-**GitHub:** `SriSatya10/parikshak-integration-pipeline`
+**GitHub:** https://github.com/SriSatya10/parikshak-integration-pipeline
 **Local:** `D:\parikshak-integration-pipeline`
 **What it does:** The FULL integrated pipeline. This is where Ishan's upstream connects. Takes a submission with trace_id → parses → applies rules → traverses task graph → returns a **locked 7-field output contract**.
 
@@ -269,7 +269,7 @@ python -m pytest tests/ -v            # 3 test files
 
 ## 3.7 — intelligence-layer-live-integration (⭐ PRIMARY INTELLIGENCE LAYER)
 
-**GitHub:** `SriSatya10/intelligence-layer-live-integration`
+**GitHub:** https://github.com/SriSatya10/intelligence-layer-live-integration
 **Local:** `D:\intelligence`
 **What it does:** The **Autonomous Intelligence Layer**. After a submission is reviewed and scored, this module automatically picks the next task. No manual assignment needed.
 
@@ -279,7 +279,7 @@ python -m pytest tests/ -v            # 3 test files
 
 ## 3.8 — intelligence-integration-module
 
-**GitHub:** `SriSatya10/intelligence-integration-module`
+**GitHub:** https://github.com/SriSatya10/intelligence-integration-module
 **Local:** `D:\intelligence-integration-module`
 **What it does:** A mirror/fork of the Intelligence Layer (3.7) designed as the clean integration-ready package. Contains the same core logic (engine, adapter, models, registry) plus a `runtime_simulation.py` for demo purposes.
 
@@ -296,7 +296,7 @@ python -m pytest tests/ -v
 
 ## 3.9 — parikshak-operational-governance (⭐ MOST COMPREHENSIVE REPO)
 
-**GitHub:** `SriSatya10/parikshak-operational-governance`
+**GitHub:** https://github.com/SriSatya10/parikshak-operational-governance
 **Local:** `D:\parikshak-operational-governance`
 **What it does:** The governance layer for the entire TANTRA ecosystem. This is the largest and most mature repository. It provides:
 
@@ -341,7 +341,7 @@ pytest tests/ -v                      # 91 tests across 8 test files
 
 ## 3.10 — karmachain-deterministic-certification
 
-**GitHub:** `SriSatya10/karmachain-deterministic-certification`
+**GitHub:** https://github.com/SriSatya10/karmachain-deterministic-certification
 **Local:** `D:\karmachain-certification`
 **What it does:** Certifies that KarmaChain (a replay-driven, event-sourced infrastructure) is fully deterministic. State is NEVER stored — it's always reconstructed by replaying immutable ledger events.
 
